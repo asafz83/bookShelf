@@ -16,11 +16,7 @@ function reset(e){
 	document.getElementById('score').value = "";
 }
 
-function search(){
-	if (to !== undefined) {
-		clearTimeout(to);
-	}
-	to = setTimeout(function(){
+function performSearch(){
 		clearList();
 		var searchResults = [];
 		var nameToSearchFor = document.getElementById("searchName").value;
@@ -30,7 +26,13 @@ function search(){
 			}
 		}
 		buildListFromArray(searchResults);	
-	}, 500);
+	}
+
+function search(){
+	if (to !== undefined) {
+		clearTimeout(to);
+	}
+	to = setTimeout(performSearch, 500);
 	
 }
 
