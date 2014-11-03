@@ -7,7 +7,7 @@ function Book (bookName, authorName, score) {
 var currentBookName;
 var currentAuthorName;
 var currentScore;
-
+var to;
 var booksArray = [];
 
 function reset(e){
@@ -17,15 +17,21 @@ function reset(e){
 }
 
 function search(){
-	clearList();
-	var searchResults = [];
-	var nameToSearchFor = document.getElementById("searchName").value;
-	for (var i=0;i<booksArray.length;i++) {
-		if (booksArray[i].bookName.indexOf(nameToSearchFor) > -1) {
-			searchResults.push(booksArray[i]);	
-		}
+	if (to !== undefined) {
+		clearTimeout(to);
 	}
-	buildListFromArray(searchResults);
+	to = setTimeout(function(){
+		clearList();
+		var searchResults = [];
+		var nameToSearchFor = document.getElementById("searchName").value;
+		for (var i=0;i<booksArray.length;i++) {
+			if (booksArray[i].bookName.indexOf(nameToSearchFor) > -1) {
+				searchResults.push(booksArray[i]);	
+			}
+		}
+		buildListFromArray(searchResults);	
+	}, 500);
+	
 }
 
 function buildListFromArray(searchResults) {
