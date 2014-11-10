@@ -62,7 +62,23 @@ function clearList(){
 	ul.innerHTML = '';
 }
 
+function getNameFromXButton(element) {
+	return element.parentElement.children[0].innerHTML;	
+}
+
+function findIndexInBookArray(name) {
+	for (var i=0;i<booksArray.length;i++) {
+		if (booksArray[i].name == name) {
+			return i;
+		} 
+	}	
+	return -1;
+}
+
 function removeItem(e) {
+	var name = getNameFromXButton(e.target);
+	var indexInArray = findIndexInBookArray(name);
+	booksArray.splice(indexInArray, 1);
 	e.target.parentElement.remove();
 }
 
