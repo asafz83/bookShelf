@@ -55,7 +55,7 @@ function addBook(){
 	var book = new Book(bookName, authorName, score);
 	var arrFromLocalStorage = JSON.parse(localStorage.getItem("booksArray"));
 	arrFromLocalStorage.push(book);
-	localStorage.setItem("booksArray", arrFromLocalStorage.toString());
+	localStorage.setItem("booksArray", JSON.stringify(arrFromLocalStorage));
 	booksArray.push(book);
 	//buildListFromArray(booksArray);
 	addToList(book);
