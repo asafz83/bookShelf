@@ -4,6 +4,12 @@ function Book (bookName, authorName, score) {
 	this.score = score;
 };
 
+if (localStorage.getItem("booksArray") == null) {
+	localStorage.setItem("booksArray", [].toString()); 	
+} else {
+	
+}
+
 var currentBookName;
 var currentAuthorName;
 var currentScore;
@@ -47,6 +53,9 @@ function addBook(){
 	var authorName = document.getElementById('authorName').value;
 	var score = document.getElementById('score').value;
 	var book = new Book(bookName, authorName, score);
+	var arrFromLocalStorage = JSON.parse(localStorage.getItem("booksArray"));
+	arrFromLocalStorage.push(book);
+	localStorage.setItem("booksArray", arrFromLocalStorage.toString());
 	booksArray.push(book);
 	//buildListFromArray(booksArray);
 	addToList(book);
