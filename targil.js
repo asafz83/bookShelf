@@ -5,7 +5,7 @@ function Book (bookName, authorName, score) {
 };
 
 if (localStorage.getItem("booksArray") == null) {
-	localStorage.setItem("booksArray", [].toString()); 	
+	localStorage.setItem("booksArray", "[]"); 	
 } else {
 	
 }
