@@ -4,7 +4,7 @@ function Book (bookName, authorName, score) {
 	this.score = score;
 };
 
-if (localStorage.getItem("booksArray") == null) {
+if (localStorage.getItem("booksArray") == null || localStorage.getItem("booksArray").length == 0) {
 	localStorage.setItem("booksArray", "[]"); 	
 } else {
 	
