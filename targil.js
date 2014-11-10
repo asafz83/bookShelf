@@ -100,11 +100,16 @@ function submitEdit(e) {
 
 function editItem(e) {
 	if (e.target.innerHTML == "save") {
+		var indexInArray = findIndexInBookArray(currentBookName);
+		 
 		var li = e.target.parentElement;
 		e.target.innerHTML = "edit";
 		var bookName = li.children[0].children[0].value;
 		var authorName = li.children[1].children[0].value;
 		var score = li.children[2].children[0].value;
+		booksArray[indexInArray].bookName = bookName;
+		booksArray[indexInArray].authorName = authorName;
+		booksArray[indexInArray].score = score;
 		li.children[0].innerHTML = bookName;
 		li.children[1].innerHTML = authorName;
 		li.children[2].innerHTML = score;
