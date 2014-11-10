@@ -68,7 +68,7 @@ function getNameFromXButton(element) {
 
 function findIndexInBookArray(name) {
 	for (var i=0;i<booksArray.length;i++) {
-		if (booksArray[i].name == name) {
+		if (booksArray[i].bookName == name) {
 			return i;
 		} 
 	}	
