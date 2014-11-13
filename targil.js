@@ -4,15 +4,17 @@ function Book (bookName, authorName, score) {
 	this.score = score;
 };
 var booksArray = [];
-if (localStorage.getItem("refael") == null || localStorage.getItem("refael").length == 0) {
-	localStorage.setItem("refael", "[]"); 	
-} else {
-	var a = localStorage.getItem("refael");
-	booksArray = JSON.parse(a);
-	buildListFromArray(booksArray);
-	//booksArray = JSON.parse(localStorage.getItem("refael"));		
-}
 
+setTimeout(function(){
+	if (localStorage.getItem("refael") == null || localStorage.getItem("refael").length == 0) {
+	localStorage.setItem("refael", "[]"); 	
+	} else {
+		var a = localStorage.getItem("refael");
+		booksArray = JSON.parse(a);
+		buildListFromArray(booksArray);
+	//booksArray = JSON.parse(localStorage.getItem("refael"));		
+	}
+}, 1000);
 var currentBookName;
 var currentAuthorName;
 var currentScore;
