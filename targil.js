@@ -3,18 +3,21 @@ function Book (bookName, authorName, score) {
 	this.authorName = authorName;
 	this.score = score;
 };
-
-if (localStorage.getItem("booksArray") == null || localStorage.getItem("booksArray").length == 0) {
-	localStorage.setItem("booksArray", "[]"); 	
+var booksArray = [];
+if (localStorage.getItem("refael") == null || localStorage.getItem("refael").length == 0) {
+	localStorage.setItem("refael", "[]"); 	
 } else {
-	
+	var a = localStorage.getItem("refael");
+	booksArray = JSON.parse(a);
+	buildListFromArray(booksArray);
+	//booksArray = JSON.parse(localStorage.getItem("refael"));		
 }
 
 var currentBookName;
 var currentAuthorName;
 var currentScore;
 var to;
-var booksArray = [];
+
 
 function reset(e){
 	document.getElementById('bookName').value = "";
@@ -53,10 +56,10 @@ function addBook(){
 	var authorName = document.getElementById('authorName').value;
 	var score = document.getElementById('score').value;
 	var book = new Book(bookName, authorName, score);
-	var arrFromLocalStorage = JSON.parse(localStorage.getItem("booksArray"));
-	arrFromLocalStorage.push(book);
-	localStorage.setItem("booksArray", JSON.stringify(arrFromLocalStorage));
+	
+	
 	booksArray.push(book);
+	localStorage.setItem("refael", JSON.stringify(booksArray));
 	//buildListFromArray(booksArray);
 	addToList(book);
 	reset();
@@ -88,6 +91,7 @@ function removeItem(e) {
 	var name = getNameFromXButton(e.target);
 	var indexInArray = findIndexInBookArray(name);
 	booksArray.splice(indexInArray, 1);
+	localStorage.setItem("refael", JSON.stringify(booksArray));
 	e.target.parentElement.remove();
 }
 
@@ -119,6 +123,7 @@ function editItem(e) {
 		booksArray[indexInArray].bookName = bookName;
 		booksArray[indexInArray].authorName = authorName;
 		booksArray[indexInArray].score = score;
+		localStorage.setItem("refael", JSON.stringify(booksArray));
 		li.children[0].innerHTML = bookName;
 		li.children[1].innerHTML = authorName;
 		li.children[2].innerHTML = score;
@@ -182,4 +187,5 @@ function addToList(book) {
 function clearListAndArray(){
 	clearList();
 	booksArray = [];
+	localStorage.setItem("refael", JSON.stringify(booksArray));
 }
