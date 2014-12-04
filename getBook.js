@@ -12,10 +12,10 @@ function getNameParameter(){
 } 
 
 function fillDOMWithBook(book) {
- document.getElementById("title") = book.bookName;
- document.getElementById("author") = book.authorName;
- document.getElementById("score") = book.score;
- document.getElementById("description") = book.description;
+ document.getElementById("title").value = book.bookName;
+ document.getElementById("author").value = book.authorName;
+ document.getElementById("score").value = book.score;
+ document.getElementById("description").value = book.description;
 }
 
 var nameParameter = getNameParameter();
