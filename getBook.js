@@ -25,7 +25,7 @@ for (var i=0;i<listOfBooks.length;i++) {
   var book = listOfBooks[i];
      setTimeout(function(){
       fillDOMWithBook(book); 
-     }, 500);
+     }, 5000);
      
  }
 }
