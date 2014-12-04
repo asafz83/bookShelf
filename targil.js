@@ -181,11 +181,16 @@ function addToList(book) {
 		var edit = document.createElement("span");
 		edit.setAttribute("onclick", "editItem(event)");
 		edit.innerHTML = "edit";
+		
+		var a = document.createElement("a");
+		a.setAttribute("href", "bookDetails.html?name=" + book.bookName);
+		a.innerHTML = "View details";
 		newElement.appendChild(bookNameDiv);
 		newElement.appendChild(authorNameDiv);
 		newElement.appendChild(scoreDiv);
 		newElement.appendChild(edit);
 		newElement.appendChild(x);
+		newElement.appendChild(a);
 		var ul = document.getElementById("bookList");
 		ul.appendChild(newElement);
 }
