@@ -1,7 +1,8 @@
-function Book (bookName, authorName, score) {
+function Book (bookName, authorName, score, description) {
 	this.bookName = bookName;
 	this.authorName = authorName;
 	this.score = score;
+	this.description = description;
 };
 var booksArray = [];
 
@@ -18,6 +19,7 @@ setTimeout(function(){
 var currentBookName;
 var currentAuthorName;
 var currentScore;
+ver currentDescription;
 var to;
 
 
@@ -25,6 +27,7 @@ function reset(e){
 	document.getElementById('bookName').value = "";
 	document.getElementById('authorName').value = "";
 	document.getElementById('score').value = "";
+	document.getElementById('description').value = "";
 }
 
 function performSearch(){
@@ -57,7 +60,8 @@ function addBook(){
 	var bookName = document.getElementById('bookName').value;
 	var authorName = document.getElementById('authorName').value;
 	var score = document.getElementById('score').value;
-	var book = new Book(bookName, authorName, score);
+	var description = document.getElementById('description').value;
+	var book = new Book(bookName, authorName, score, description);
 	
 	
 	booksArray.push(book);
