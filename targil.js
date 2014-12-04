@@ -19,7 +19,7 @@ setTimeout(function(){
 var currentBookName;
 var currentAuthorName;
 var currentScore;
-ver currentDescription;
+var currentDescription;
 var to;
 
 
