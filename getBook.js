@@ -11,7 +11,18 @@ function getNameParameter(){
  return "";
 } 
 
+function fillDOMWithBook(book) {
+ document.getElementById("title") = book.bookName;
+ document.getElementById("author") = book.authorName;
+ document.getElementById("score") = book.score;
+ document.getElementById("description") = book.description;
+}
+
 var nameParameter = getNameParameter();
 var listOfBooks = JSON.parse(localStorage.getItem("refael"));
-
+for (var i=0;i<listOfBooks.length;i++) {
+ if (nameParameter === listOfBooks[i].bookName) {
+     fillDOMWithBook(listOfBooks[i]);
+ }
+}
 
