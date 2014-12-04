@@ -5,7 +5,7 @@ function getNameParameter(){
  for (var i=0;i<paramsArray.length;i++) {
    var entryArray = paramsArray[i].split("=");
    if (entryArray[0] === "name") {
-     return entryArray[1];    
+     return entryArray[1].split("%20").join(" ");    
    }
  }
  return "";
