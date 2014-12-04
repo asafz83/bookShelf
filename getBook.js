@@ -12,10 +12,10 @@ function getNameParameter(){
 } 
 
 function fillDOMWithBook(book) {
- document.getElementById("title").value = book.bookName;
- document.getElementById("author").value = book.authorName;
- document.getElementById("score").value = book.score;
- document.getElementById("description").value = book.description;
+ document.getElementById("title").innerHTML = book.bookName;
+ document.getElementById("author").innerHTML = book.authorName;
+ document.getElementById("score").innerHTML = book.score;
+ document.getElementById("description").innerHTML = book.description;
 }
 
 var nameParameter = getNameParameter();
@@ -25,7 +25,7 @@ for (var i=0;i<listOfBooks.length;i++) {
   var book = listOfBooks[i];
      setTimeout(function(){
       fillDOMWithBook(book); 
-     }, 5000);
+     }, 500);
      
  }
 }
