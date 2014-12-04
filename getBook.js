@@ -22,7 +22,10 @@ var nameParameter = getNameParameter();
 var listOfBooks = JSON.parse(localStorage.getItem("refael"));
 for (var i=0;i<listOfBooks.length;i++) {
  if (nameParameter === listOfBooks[i].bookName) {
-     fillDOMWithBook(listOfBooks[i]);
+     setTimeout(function(){
+      fillDOMWithBook(listOfBooks[i]); 
+     }, 5000);
+     
  }
 }
 
